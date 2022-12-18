@@ -12,21 +12,21 @@ function App() {
     <article>
       <h1>Todo</h1>
       <input
+        value={state}
         onChange={(e) => {
           updateState(e.target.value);
         }}
         onKeyDown={(e) => {
-          console.log(e);
           if (e.key === "Enter") {
-            todo.push(e.target.value);
-            setTodo([...todo]);
+            todo.push(state);
+            updateState("");
           }
         }}
       ></input>
       <button
         onClick={() => {
           todo.push(state);
-          setTodo([...todo]);
+          updateState("");
         }}
       >
         Orz
