@@ -16,6 +16,7 @@ function App() {
           updateState(e.target.value);
         }}
         onKeyDown={(e) => {
+          console.log(e);
           if (e.key === "Enter") {
             todo.push(e.target.value);
             const [...temp] = todo;
@@ -24,8 +25,8 @@ function App() {
         }}
       ></input>
       <button
-        onClick={(e) => {
-          todo.push(e.target.value);
+        onClick={() => {
+          todo.push(state);
           const [...temp] = todo;
           setTodo(temp);
         }}
