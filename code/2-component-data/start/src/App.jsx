@@ -19,16 +19,14 @@ function App() {
           console.log(e);
           if (e.key === "Enter") {
             todo.push(e.target.value);
-            const [...temp] = todo;
-            setTodo(temp);
+            setTodo([...todo]);
           }
         }}
       ></input>
       <button
         onClick={() => {
           todo.push(state);
-          const [...temp] = todo;
-          setTodo(temp);
+          setTodo([...todo]);
         }}
       >
         Orz
