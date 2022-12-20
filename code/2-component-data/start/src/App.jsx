@@ -18,14 +18,15 @@ function App() {
         }}
         onKeyDown={(e) => {
           if (e.key === "Enter") {
-            todo.push(state);
+            setTodo([...todo, state]);
             updateState("");
           }
         }}
       ></input>
       <button
         onClick={() => {
-          todo.push(state);
+          console.log(todo);
+          setTodo([...todo, state]);
           updateState("");
         }}
       >
