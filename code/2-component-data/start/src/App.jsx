@@ -5,7 +5,10 @@ function App() {
     title: "Todo",
     list: [],
   };
-
+  function change() {
+    setTodo([...todo, state]);
+    updateState("");
+  }
   const [todo, setTodo] = useState(todoList.list);
   const [state, updateState] = useState("asdasd");
   return (
@@ -18,16 +21,13 @@ function App() {
         }}
         onKeyDown={(e) => {
           if (e.key === "Enter") {
-            setTodo([...todo, state]);
-            updateState("");
+            change();
           }
         }}
       ></input>
       <button
         onClick={() => {
-          console.log(todo);
-          setTodo([...todo, state]);
-          updateState("");
+          change();
         }}
       >
         Orz
