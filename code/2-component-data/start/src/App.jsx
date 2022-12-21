@@ -5,6 +5,7 @@ function App() {
     title: "Todo",
     list: [],
   };
+  let i = 0;
   function change() {
     setTodo([...todo, state]);
     updateState("");
@@ -22,11 +23,20 @@ function App() {
         onKeyDown={(e) => {
           if (e.key === "Enter") {
             change();
+            i++;
+            console.log(todo);
+          }
+          if (i / 5 == 0) {
+            console.log(i);
+            setTodo([...todo, "___"]);
+            updateState("");
+            i++;
           }
         }}
       ></input>
       <button
         onClick={() => {
+          console.log(todo);
           change();
         }}
       >
