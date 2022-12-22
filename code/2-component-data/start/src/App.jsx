@@ -23,14 +23,6 @@ function App() {
         onKeyDown={(e) => {
           if (e.key === "Enter") {
             change();
-            i++;
-            console.log(todo);
-          }
-          if (i / 5 == 0) {
-            console.log(i);
-            setTodo([...todo, "___"]);
-            updateState("");
-            i++;
           }
         }}
       ></input>
@@ -44,9 +36,18 @@ function App() {
       </button>
       <ui>
         <a>{state}</a>
-        {todo.map((item) => (
-          <li>{item}</li>
-        ))}
+        {todo.map((item, index) => {
+          if ((index + 1) % 5 == 0) {
+            return (
+              <>
+                <li>{item}</li>
+                <hr></hr>
+              </>
+            );
+          } else {
+            return <li>{item}</li>;
+          }
+        })}
       </ui>
     </article>
   );
