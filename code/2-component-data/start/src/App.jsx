@@ -41,12 +41,12 @@ function App() {
           if ((index + 1) % 5 == 0) {
             return (
               <>
-                <Li list={item} />
+                <Li todolist={item} />
                 <hr></hr>
               </>
             );
           } else {
-            return <Li list={item} />;
+            return <Li content={item} />;
           }
         })}
       </ui>
