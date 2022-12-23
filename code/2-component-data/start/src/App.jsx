@@ -1,6 +1,6 @@
 import "./index.css";
 import React, { useState } from "react";
-import Lili from "./RecipeTitle";
+import Li from "./RecipeTitle";
 function App() {
   const todoList = {
     title: "Todo",
@@ -41,12 +41,12 @@ function App() {
           if ((index + 1) % 5 == 0) {
             return (
               <>
-                <Lili list={item} />
+                <Li list={item} />
                 <hr></hr>
               </>
             );
           } else {
-            return <Lili list={item} />;
+            return <Li list={item} />;
           }
         })}
       </ui>

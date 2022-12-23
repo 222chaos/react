@@ -1,6 +1,6 @@
 import React from "react";
-function Lili(props) {
+function Li(props) {
   return <li>{props.list}</li>;
 }
 
-export default Lili;
+export default Li;
