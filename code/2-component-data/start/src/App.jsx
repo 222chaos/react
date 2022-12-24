@@ -1,12 +1,11 @@
 import "./index.css";
 import React, { useState } from "react";
-import Li from "./RecipeTitle";
+import TodoListItem from "./RecipeTitle";
 function App() {
   const todoList = {
     title: "Todo",
     list: [],
   };
-  let i = 0;
   function change() {
     setTodo([...todo, state]);
     updateState("");
@@ -16,6 +15,7 @@ function App() {
   return (
     <article>
       <h1>Todo</h1>
+
       <input
         value={state}
         onChange={(e) => {
@@ -41,12 +41,12 @@ function App() {
           if ((index + 1) % 5 == 0) {
             return (
               <>
-                <Li todolist={item} />
+                <TodoListItem content={item} />
                 <hr></hr>
               </>
             );
           } else {
-            return <Li content={item} />;
+            return <TodoListItem content={item} />;
           }
         })}
       </ui>
