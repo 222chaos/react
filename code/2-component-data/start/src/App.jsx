@@ -1,5 +1,5 @@
 import "./index.css";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import TodoListItem from "./RecipeTitle";
 function App() {
   const todoList = {
@@ -12,6 +12,7 @@ function App() {
   }
   const [todo, setTodo] = useState(todoList.list);
   const [state, updateState] = useState("asdasd");
+  useEffect(() => {});
   return (
     <article>
       <h1>Todo</h1>
@@ -35,21 +36,14 @@ function App() {
       >
         Orz
       </button>
-      <ui>
+      <ul>
         <a>{state}</a>
         {todo.map((item, index) => {
-          if ((index + 1) % 5 == 0) {
-            return (
-              <>
-                <TodoListItem content={item} />
-                <hr></hr>
-              </>
-            );
-          } else {
-            return <TodoListItem content={item} />;
-          }
+          return (
+            <TodoListItem content={item} splitLine={(index + 1) % 5 === 0} />
+          );
         })}
-      </ui>
+      </ul>
     </article>
   );
 }
