@@ -1,8 +1,11 @@
-import React, { useState, useEffect } from "react";
-
-function TodoListItem(props) {
-  const [hover, setHover] = useState("white");
-  const [opstate, setOp] = useState(0);
+import React, { useState, useEffect } from 'react';
+interface TodoListItemtype {
+  content: string;
+  splitLine: string;
+}
+const TodoListItem: React.FC<TodoListItemtype> = (props) => {
+  const [hover, setHover] = useState<string>('white');
+  const [opstate, setOp] = useState<number>(0);
   useEffect(() => {
     setOp(1);
   });
@@ -11,16 +14,16 @@ function TodoListItem(props) {
     <>
       <li
         onMouseEnter={() => {
-          setHover("yellow");
+          setHover('yellow');
         }}
         onMouseLeave={() => {
-          setHover("pink");
+          setHover('pink');
         }}
         style={{
-          transition: "all 1s",
+          transition: 'all 1s',
           opacity: opstate,
           background: hover,
-          color: "blue",
+          color: 'blue',
         }}
       >
         {props.content}
@@ -28,6 +31,6 @@ function TodoListItem(props) {
       {props.splitLine ? <hr /> : null}
     </>
   );
-}
+};
 
 export default TodoListItem;

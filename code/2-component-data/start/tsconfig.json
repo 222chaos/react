@@ -1,7 +1,6 @@
-
 {
   "compilerOptions": {
-    "outDir": "/dist",   
+    "outDir": "/dist",
     "module": "esnext",
     "target": "es6",
     "lib": ["es6", "dom"],
@@ -10,7 +9,7 @@
     "jsx": "react",
     "allowSyntheticDefaultImports": true,
     "moduleResolution": "node",
-    "rootDirs": ["/src", "/test", "/mock","./typings"],
+    "rootDirs": ["/src", "/test", "/mock", "./typings"],
     "forceConsistentCasingInFileNames": true,
     "noImplicitReturns": true,
     "suppressImplicitAnyIndexErrors": true,
@@ -19,7 +18,7 @@
     "experimentalDecorators": true,
     "paths": {
       "@/*": ["./src/*"]
-    },
+    }
   },
   "include": ["./src"],
   "exclude": [

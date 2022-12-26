@@ -1,17 +1,17 @@
-import "./index.css";
-import React, { useEffect, useState } from "react";
-import TodoListItem from "./RecipeTitle";
+import './index.css';
+import React, { useEffect, useState } from 'react';
+import TodoListItem from './RecipeTitle';
 function App() {
   const todoList = {
-    title: "Todo",
+    title: 'Todo',
     list: [],
   };
   function change() {
     setTodo([...todo, state]);
-    updateState("");
+    updateState('');
   }
   const [todo, setTodo] = useState(todoList.list);
-  const [state, updateState] = useState("asdasd");
+  const [state, updateState] = useState('asdasd');
   useEffect(() => {});
   return (
     <article>
@@ -23,7 +23,7 @@ function App() {
           updateState(e.target.value);
         }}
         onKeyDown={(e) => {
-          if (e.key === "Enter") {
+          if (e.key === 'Enter') {
             change();
           }
         }}
@@ -39,9 +39,7 @@ function App() {
       <ul>
         <a>{state}</a>
         {todo.map((item, index) => {
-          return (
-            <TodoListItem content={item} splitLine={(index + 1) % 5 === 0} />
-          );
+          return <TodoListItem content={item} splitLine={(index + 1) % 5 === 0} />;
         })}
       </ul>
     </article>
