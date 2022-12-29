@@ -30,7 +30,7 @@ function TodoListItem(props) {
         }}
       >
         {props.content}
-        {button === 1 ? <buttton>×</buttton> : null}
+        {props.button === 1 ? <buttton>×</buttton> : null}
       </li>
       {props.splitLine ? <hr /> : null}
     </>

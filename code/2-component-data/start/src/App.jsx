@@ -5,9 +5,13 @@ function change() {
   setTodo([...todo, state]);
   updateState('');
 }
-const [todo, setTodo] = useState(Symbol({ id: 0, text: [] }));
+const [todo, setTodo] = useState([]);
 const [state, updateState] = useState('asdasd');
 useEffect(() => {});
+function onDelete(index) {
+  todo.splice(index, 1);
+  setTodo([...todo]);
+}
 return (
   <article>
     <h1>Todo</h1>
@@ -23,6 +27,7 @@ return (
         }
       }}
     ></input>
+    <button onClick={() => onRemove(todo)}>Remove</button>
     <button
       onClick={() => {
         console.log(todo);
@@ -34,7 +39,13 @@ return (
     <ul>
       <a>{state}</a>
       {todo.map((item, index) => {
-        return <TodoListItem content={item} splitLine={(index + 1) % 5 === 0} />;
+        return (
+          <TodoListItem
+            content={item}
+            splitLine={(index + 1) % 5 === 0}
+            way={onDelete({ index })}
+          />
+        );
       })}
     </ul>
   </article>
