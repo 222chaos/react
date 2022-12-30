@@ -7,7 +7,6 @@ function TodoListItem(props) {
   useEffect(() => {
     setOp(1);
   }, []);
-  console.log("1")
   return (
     <>
       <li
@@ -30,12 +29,11 @@ function TodoListItem(props) {
         }}
       >
         {props.content}
-        {props.button === 1 ? <buttton
+        {button === 1 ? <buttton
         
         onClick={()=>{
-          
-        props.onDelete(props.index)
-          
+          props.onDelete(props.index)
+
         }}
 
         >😀</buttton> : null}

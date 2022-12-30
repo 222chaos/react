@@ -10,6 +10,8 @@ function App() {
     todo.splice(index, 1);
     setTodo([...todo]);
   }
+  console.log(onDelete)
+  console.log(onDelete)
   const [todo, setTodo] = useState<Array<string>>([]);
   const [state, updateState] = useState<string>('asdasd');
   return (
@@ -44,7 +46,7 @@ function App() {
           <TodoListItem
             content={item}
             splitLine={(index + 1) % 5 === 0}
-            button={onDelete(index)}
+            onDelete={()=>onDelete(index)}
           />
         );
       })}
