@@ -32,8 +32,7 @@ function TodoListItem(props) {
         {button === 1 ? <buttton
         
         onClick={()=>{
-          props.onDelete(props.index)
-
+          props.onDelete(123213213213)
         }}
 
         >😀</buttton> : null}
