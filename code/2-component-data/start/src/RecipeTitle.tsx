@@ -32,7 +32,7 @@ function TodoListItem(props) {
         {button === 1 ? <buttton
         
         onClick={()=>{
-          props.onDelete(123213213213)
+          props.onDelete()
         }}
 
         >😀</buttton> : null}
@@ -41,5 +41,5 @@ function TodoListItem(props) {
     </>
   );
 }
-
+//不要用匿名方法的实现
 export default TodoListItem;

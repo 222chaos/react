@@ -12,7 +12,7 @@ function App() {
   }
   const [todo, setTodo] = useState<Array<string>>([]);
   const [state, updateState] = useState<string>('asdasd');
-  console.log(onDelete)
+  
   return (
     
     <article>
