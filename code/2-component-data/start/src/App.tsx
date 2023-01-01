@@ -45,7 +45,8 @@ function App() {
           <TodoListItem
             content={item}
             splitLine={(index + 1) % 5 === 0}
-            onDelete={()=>onDelete(index)}
+            onDelete={onDelete}
+            index={index}
           />
         );
       })}
