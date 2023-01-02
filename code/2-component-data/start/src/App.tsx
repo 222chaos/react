@@ -10,6 +10,12 @@ function App() {
     todo.splice(index, 1);
     setTodo([...todo]);
   }
+  function swapItem( index1, index2) {
+    var temp = todo[index1];
+    todo[index1] = todo[index2];
+    todo[index2] = temp;
+    setTodo([...todo])
+  }
   const [todo, setTodo] = useState<Array<string>>([]);
   const [state, updateState] = useState<string>('asdasd');
   
@@ -47,6 +53,7 @@ function App() {
             splitLine={(index + 1) % 5 === 0}
             onDelete={onDelete}
             index={index}
+            swapItem={swapItem}
           />
         );
       })}

@@ -30,16 +30,23 @@ function TodoListItem(props) {
       >
         {props.content}
         {button === 1 ? <buttton
-        
         onClick={()=>{
           props.onDelete(props.index)
         }}
-
-        >😀</buttton> : null}
+        >×</buttton> : null}
+        {button === 1 ? <buttton
+        onClick={()=>{
+           props.swapItem(props.index-1,props.index)
+        }}
+        >↑</buttton> : null}
+       {button === 1 ? <buttton
+        onClick={()=>{
+          props.swapItem(props.index,props.index+1)
+        }}
+        >↓</buttton> : null}
       </li>
       {props.splitLine ? <hr /> : null}
     </>
   );
 }
-//不要用匿名方法的实现
 export default TodoListItem;
