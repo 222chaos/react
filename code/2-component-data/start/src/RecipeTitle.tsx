@@ -29,11 +29,12 @@ function TodoListItem(props) {
         }}
       >
         {props.content}
-        {button === 1 ? <buttton
-        onClick={()=>{
-          props.onDelete(props.index)
-        }}
-        >×</buttton> : null}
+        <div
+        style={{
+          display:"flex",
+          gap:8,
+        }}>
+       
         {button === 1 ? <buttton
         onClick={()=>{
            props.swapItem(props.index-1,props.index)
@@ -44,6 +45,12 @@ function TodoListItem(props) {
           props.swapItem(props.index,props.index+1)
         }}
         >↓</buttton> : null}
+        {button === 1 ? <buttton
+        onClick={()=>{
+          props.onDelete(props.index)
+        }}
+        >×</buttton> : null}
+        </div>
       </li>
       {props.splitLine ? <hr /> : null}
     </>
