@@ -33,8 +33,8 @@ function TodoListItem(props) {
         style={{
           display:"flex",
           gap:8,
+          cursor:"pointer"
         }}>
-       
         {button === 1 ? <buttton
         onClick={()=>{
            props.swapItem(props.index-1,props.index)
