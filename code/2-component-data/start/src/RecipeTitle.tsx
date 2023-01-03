@@ -28,28 +28,42 @@ function TodoListItem(props) {
           color: 'blue',
         }}
       >
+        <div>
+          <title>
+            <desc>
         {props.content}
+        </desc>
+        </title>
+        </div>
         <div
         style={{
           display:"flex",
           gap:8,
           cursor:"pointer"
         }}>
+        <title>
+          <desc>
         {button === 1 ? <buttton
         onClick={()=>{
            props.swapItem(props.index-1,props.index)
         }}
         >↑</buttton> : null}
+        </desc>
+        <desc>
        {button === 1 ? <buttton
         onClick={()=>{
           props.swapItem(props.index,props.index+1)
         }}
         >↓</buttton> : null}
+        </desc>
+          <desc>
         {button === 1 ? <buttton
         onClick={()=>{
           props.onDelete(props.index)
         }}
         >×</buttton> : null}
+        </desc>
+        </title>
         </div>
       </li>
       {props.splitLine ? <hr /> : null}

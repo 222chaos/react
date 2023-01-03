@@ -22,8 +22,12 @@ function App() {
   return (
     
     <article>
+      <div>
+        <title>
       <h1>Todo</h1>
-
+      </title>
+      <title>
+        <desc>
       <input
         value={state}
         onChange={(e) => {
@@ -35,6 +39,9 @@ function App() {
           }
         }}
       ></input>
+      </desc>
+      </title>
+      
       <button
         onClick={() => {
           console.log(todo);
@@ -43,7 +50,6 @@ function App() {
       >
         Orz
       </button>
-      
       <ul>
         <a>{state}</a>
         {todo.map((item, index) => {
@@ -58,6 +64,7 @@ function App() {
         );
       })}
       </ul>
+      </div>
     </article>
   );
 }
