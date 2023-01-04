@@ -22,12 +22,7 @@ function App() {
   return (
     
     <article>
-      <div>
-        <title>
       <h1>Todo</h1>
-      </title>
-      <title>
-        <desc>
       <input
         value={state}
         onChange={(e) => {
@@ -39,17 +34,14 @@ function App() {
           }
         }}
       ></input>
-      </desc>
-      </title>
-      
       <button
         onClick={() => {
-          console.log(todo);
           change();
         }}
       >
         Orz
       </button>
+      
       <ul>
         <a>{state}</a>
         {todo.map((item, index) => {
@@ -60,11 +52,11 @@ function App() {
             onDelete={onDelete}
             index={index}
             swapItem={swapItem}
+            change={change}
           />
         );
       })}
       </ul>
-      </div>
     </article>
   );
 }

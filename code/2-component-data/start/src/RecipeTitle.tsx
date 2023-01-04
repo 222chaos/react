@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 
+
 function TodoListItem(props) {
-  const [hover, setHover] = useState('white');
+  const [color, setColor] = useState('white');
   const [opstate, setOp] = useState(0);
-  const [button, setB] = useState(0);
+  const [hover, setHover] = useState(0);
+  const [state, updateState] = useState<string>('asdasd');
   useEffect(() => {
     setOp(1);
   }, []);
@@ -11,12 +13,12 @@ function TodoListItem(props) {
     <>
       <li
         onMouseEnter={() => {
-          setHover('yellow');
-          setB(1);
+          setColor('yellow');
+          setHover(1);
         }}
         onMouseLeave={() => {
-          setHover('pink');
-          setB(0);
+          setColor('pink');
+          setHover(0);
         }}
         style={{
           display: 'flex',
@@ -24,46 +26,43 @@ function TodoListItem(props) {
           justifyContent: 'space-between',
           transition: 'all 1s',
           opacity: opstate,
-          background: hover,
+          background: color,
           color: 'blue',
         }}
       >
-        <div>
-          <title>
-            <desc>
         {props.content}
-        </desc>
-        </title>
-        </div>
         <div
         style={{
           display:"flex",
           gap:8,
           cursor:"pointer"
         }}>
-        <title>
-          <desc>
-        {button === 1 ? <buttton
+        {hover === 1 ? <buttton
         onClick={()=>{
            props.swapItem(props.index-1,props.index)
         }}
         >↑</buttton> : null}
-        </desc>
-        <desc>
-       {button === 1 ? <buttton
+       {hover === 1 ? <buttton
         onClick={()=>{
           props.swapItem(props.index,props.index+1)
         }}
         >↓</buttton> : null}
-        </desc>
-          <desc>
-        {button === 1 ? <buttton
+        {hover === 1 ? <buttton
         onClick={()=>{
           props.onDelete(props.index)
         }}
         >×</buttton> : null}
-        </desc>
-        </title>
+        {hover === 1 ? <input
+        value={state}
+        onChange={(e) => {
+          updateState(e.target.value);
+        }}
+        ></input> : null}
+        {hover === 1 ? <button
+        onClick={()=>{
+          props.change();
+        }}
+        >orz</button> : null}
         </div>
       </li>
       {props.splitLine ? <hr /> : null}
