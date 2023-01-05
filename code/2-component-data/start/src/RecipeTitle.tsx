@@ -33,11 +33,13 @@ function TodoListItem(props) {
           opacity: opstate,
           background: color,
           color: 'blue',
+          padding:8,
         }}
       >
         {props.content}
         <div
         style={{
+          
           display:"flex",
           gap:8,
           cursor:"pointer"
@@ -71,11 +73,11 @@ function TodoListItem(props) {
         >orz</button> : null}
         </div>
       </li>
+      {desctodo.map((item, index) => <div
+      style={{
       
-      {desctodo.map((item, index) => {
-        return <div>{item}</div>;
-        
-      })}
+      marginLeft:20,
+      }}>{item}</div>)}
       {props.splitLine ? <hr /> : null}
     </>
   );
