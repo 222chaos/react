@@ -75,8 +75,8 @@ function TodoListItem(props) {
       </li>
       {desctodo.map((item, index) => <div
       style={{
-      
       marginLeft:20,
+      marginTop:5,
       }}>{item}</div>)}
       {props.splitLine ? <hr /> : null}
     </>
