@@ -5,7 +5,12 @@ function TodoListItem(props) {
   const [color, setColor] = useState('white');
   const [opstate, setOp] = useState(0);
   const [hover, setHover] = useState(0);
-  const [state, updateState] = useState<string>('asdasd');
+  const [descState, updatedescState] = useState<string>('1');
+  const [desctodo, setdescTodo] = useState<Array<string>>([]);
+  function descChange() {
+    setdescTodo([...desctodo, descState]);
+    updatedescState('');
+  }
   useEffect(() => {
     setOp(1);
   }, []);
@@ -53,18 +58,23 @@ function TodoListItem(props) {
         }}
         >×</buttton> : null}
         {hover === 1 ? <input
-        value={state}
+        value={descState}
         onChange={(e) => {
-          updateState(e.target.value);
+          updatedescState(e.target.value);
         }}
         ></input> : null}
         {hover === 1 ? <button
         onClick={()=>{
-          props.change();
+          console.log(desctodo)
+          descChange();
         }}
         >orz</button> : null}
         </div>
       </li>
+      {desctodo.map((item, index) => {
+        return item;
+        
+      })}
       {props.splitLine ? <hr /> : null}
     </>
   );
