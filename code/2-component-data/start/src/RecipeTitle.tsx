@@ -71,8 +71,9 @@ function TodoListItem(props) {
         >orz</button> : null}
         </div>
       </li>
+      
       {desctodo.map((item, index) => {
-        return item;
+        return <div>{item}</div>;
         
       })}
       {props.splitLine ? <hr /> : null}
