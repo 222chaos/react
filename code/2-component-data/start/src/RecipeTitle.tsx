@@ -83,3 +83,9 @@ function TodoListItem(props) {
   );
 }
 export default TodoListItem;
+
+
+//const [todo,setTode] = useState([]);
+
+//setTode([{ title:"123",desc:"1234"}])
+//todo.map((obj)=><li> <div>{obj.title}</div> <div>{obj.desc}</div></li>)
