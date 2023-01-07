@@ -6,6 +6,7 @@ function App() {
     setTodo([...todo, state]);
     updateState('');
   }
+  
   function onDelete(index) {
     todo.splice(index, 1);
     setTodo([...todo]);
@@ -18,9 +19,8 @@ function App() {
   }
   const [todo, setTodo] = useState<Array<string>>([]);
   const [state, updateState] = useState<string>('asdasd');
-  
+  const [todo1,setTode] = useState([]);
   return (
-    
     <article>
       <h1>Todo</h1>
       <input
@@ -41,7 +41,17 @@ function App() {
       >
         Orz
       </button>
-      
+      <button
+        onClick={() => {
+          
+          setTode([{ title:"123",desc:"1234"}])
+          console.log(todo1)
+          {todo1.map((obj)=>{
+            return(<li> <div>{obj.title}</div> <div>{obj.desc}</div></li>)}
+  )}}}
+      >
+       test
+      </button>
       <ul>
         <a>{state}</a>
         {todo.map((item, index) => {
@@ -56,6 +66,7 @@ function App() {
           />
         );
       })}
+      
       </ul>
     </article>
   );
