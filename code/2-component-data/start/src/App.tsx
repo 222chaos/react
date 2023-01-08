@@ -45,8 +45,10 @@ function App() {
         onClick={() => {
           
           setTode([{ title:"123",desc:"1234"}])
+          
           console.log(todo1)
           {todo1.map((obj)=>{
+            console.log(obj)
             return(<li> <div>{obj.title}</div> <div>{obj.desc}</div></li>)}
   )}}}
       >
