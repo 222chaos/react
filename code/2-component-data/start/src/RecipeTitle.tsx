@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 
-
 function TodoListItem(props) {
   const [color, setColor] = useState('white');
   const [opstate, setOp] = useState(0);
@@ -33,51 +32,74 @@ function TodoListItem(props) {
           opacity: opstate,
           background: color,
           color: 'blue',
-          padding:8,
+          padding: 8,
         }}
       >
         {props.content}
         <div
-        style={{
-          
-          display:"flex",
-          gap:8,
-          cursor:"pointer"
-        }}>
-        {hover === 1 ? <buttton
-        onClick={()=>{
-           props.swapItem(props.index-1,props.index)
-        }}
-        >↑</buttton> : null}
-       {hover === 1 ? <buttton
-        onClick={()=>{
-          props.swapItem(props.index,props.index+1)
-        }}
-        >↓</buttton> : null}
-        {hover === 1 ? <buttton
-        onClick={()=>{
-          props.onDelete(props.index)
-        }}
-        >×</buttton> : null}
-        {hover === 1 ? <input
-        value={descState}
-        onChange={(e) => {
-          updatedescState(e.target.value);
-        }}
-        ></input> : null}
-        {hover === 1 ? <button
-        onClick={()=>{
-          console.log(desctodo)
-          descChange();
-        }}
-        >orz</button> : null}
+          style={{
+            display: 'flex',
+            gap: 8,
+            cursor: 'pointer',
+          }}
+        >
+          {hover === 1 ? (
+            <buttton
+              onClick={() => {
+                props.swapItem(props.index - 1, props.index);
+              }}
+            >
+              ↑
+            </buttton>
+          ) : null}
+          {hover === 1 ? (
+            <buttton
+              onClick={() => {
+                props.swapItem(props.index, props.index + 1);
+              }}
+            >
+              ↓
+            </buttton>
+          ) : null}
+          {hover === 1 ? (
+            <buttton
+              onClick={() => {
+                props.onDelete(props.index);
+              }}
+            >
+              ×
+            </buttton>
+          ) : null}
+          {hover === 1 ? (
+            <input
+              value={descState}
+              onChange={(e) => {
+                updatedescState(e.target.value);
+              }}
+            ></input>
+          ) : null}
+          {hover === 1 ? (
+            <button
+              onClick={() => {
+                console.log(desctodo);
+                descChange();
+              }}
+            >
+              orz
+            </button>
+          ) : null}
         </div>
       </li>
-      {desctodo.map((item, index) => <div
-      style={{
-      marginLeft:20,
-      marginTop:5,
-      }}>{item}</div>)}
+      {desctodo.map((item, index) => (
+        <div
+          style={{
+            marginLeft: 20,
+            marginTop: 5,
+          }}
+        >
+          {item}
+        </div>
+      ))}
       {props.splitLine ? <hr /> : null}
     </>
   );

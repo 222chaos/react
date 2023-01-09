@@ -6,20 +6,22 @@ function App() {
     setTodo([...todo, state]);
     updateState('');
   }
-  
+
   function onDelete(index) {
     todo.splice(index, 1);
     setTodo([...todo]);
   }
-  function swapItem( index1, index2) {
+  function swapItem(index1, index2) {
     var temp = todo[index1];
     todo[index1] = todo[index2];
     todo[index2] = temp;
-    setTodo([...todo])
+    setTodo([...todo]);
   }
   const [todo, setTodo] = useState<Array<string>>([]);
-  const [state, updateState] = useState<string>('asdasd');
-  const [todo1,setTode] = useState([]);
+  const [state, updateState] = useState<string>('0');
+  const [stateTitle,updateStateTitle] = useState<string>('im title')
+  const [stateDesc,updateStateDesc] = useState<string>('im desc')
+  const [todo1, setTode] = useState([]);
   return (
     <article>
       <h1>Todo</h1>
@@ -30,10 +32,39 @@ function App() {
         }}
         onKeyDown={(e) => {
           if (e.key === 'Enter') {
-            change();
+            setTodo([...todo, state]);
+            updateState('');
           }
         }}
       ></input>
+      <input 
+      value={stateTitle}
+      onChange={(e) => {
+        updateStateTitle(e.target.value);
+        
+      }}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter') {
+          setTode([...todo1, { title: stateTitle, desc: stateDesc }]);
+          updateStateTitle('');
+          updateStateDesc('')
+        }
+      }}
+      >
+      </input>
+      <input
+      value={stateDesc}
+      onChange={(e) => {
+        updateStateDesc(e.target.value);
+        
+      }}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter') {
+          setTode([...todo1, { title: stateTitle, desc: stateDesc }]);
+          updateStateTitle('');
+          updateStateDesc('')
+        }
+      }}></input>
       <button
         onClick={() => {
           change();
@@ -43,32 +74,37 @@ function App() {
       </button>
       <button
         onClick={() => {
-          
-          setTode([{ title:"123",desc:"1234"}])
-          
-          console.log(todo1)
-          {todo1.map((obj)=>{
-            console.log(obj)
-            return(<li> <div>{obj.title}</div> <div>{obj.desc}</div></li>)}
-  )}}}
+          setTode([...todo1, { title: state, desc: state }]);
+
+          updateState('');
+        }}
       >
-       test
+        test
       </button>
+
       <ul>
         <a>{state}</a>
         {todo.map((item, index) => {
-        return (
-          <TodoListItem
-            content={item}
-            splitLine={(index + 1) % 5 === 0}
-            onDelete={onDelete}
-            index={index}
-            swapItem={swapItem}
-            change={change}
-          />
-        );
-      })}
-      
+          return (
+            <TodoListItem
+              content={item}
+              splitLine={(index + 1) % 5 === 0}
+              onDelete={onDelete}
+              index={index}
+              swapItem={swapItem}
+              change={change}
+            />
+          );
+        })}
+        {todo1.map((obj) => {
+          return (
+            <li>
+              {' '}
+              <div>{obj.title}</div>
+              <div>{obj.desc}</div>
+            </li>
+          );
+        })}
       </ul>
     </article>
   );
