@@ -37,21 +37,33 @@ function App() {
           }
         }}
       ></input>
+       <button
+         onClick={() => {
+        
+          change()
+        
+      }}
+      >
+        Orz
+      </button>
       <input 
       value={stateTitle}
       onChange={(e) => {
         updateStateTitle(e.target.value);
-        
-      }}
-      onKeyDown={(e) => {
-        if (e.key === 'Enter') {
-          setTode([...todo1, { title: stateTitle, desc: stateDesc }]);
-          updateStateTitle('');
-          updateStateDesc('')
-        }
       }}
       >
       </input>
+      <button
+         onClick={() => {
+        
+          setTode([...todo1, { title: stateTitle, desc: stateDesc }]);
+          updateStateTitle('');
+          updateStateDesc('')
+        
+      }}
+      >
+        Title
+      </button>
       <input
       value={stateDesc}
       onChange={(e) => {
@@ -62,26 +74,20 @@ function App() {
         if (e.key === 'Enter') {
           setTode([...todo1, { title: stateTitle, desc: stateDesc }]);
           updateStateTitle('');
-          updateStateDesc('')
+          
         }
       }}></input>
-      <button
-        onClick={() => {
-          change();
-        }}
+       <button
+         onClick={() => {
+          setTode([...todo1, { title: stateTitle, desc: stateDesc }]);
+          
+          updateStateDesc('')
+        
+      }}
       >
-        Orz
+        Desc
       </button>
-      <button
-        onClick={() => {
-          setTode([...todo1, { title: state, desc: state }]);
-
-          updateState('');
-        }}
-      >
-        test
-      </button>
-
+     
       <ul>
         <a>{state}</a>
         {todo.map((item, index) => {
