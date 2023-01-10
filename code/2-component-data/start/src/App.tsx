@@ -1,6 +1,7 @@
 import './index.css';
 import React, { useState } from 'react';
 import TodoListItem from './RecipeTitle';
+
 function App() {
   function change() {
     setTodo([...todo, state]);
@@ -22,6 +23,7 @@ function App() {
   const [stateTitle,updateStateTitle] = useState<string>('im title')
   const [stateDesc,updateStateDesc] = useState<string>('im desc')
   const [todo1, setTode] = useState([]);
+  
   return (
     <article>
       <h1>Todo</h1>
@@ -39,7 +41,6 @@ function App() {
       ></input>
        <button
          onClick={() => {
-        
           change()
         
       }}
@@ -55,7 +56,9 @@ function App() {
       </input>
       <button
          onClick={() => {
-        
+          if(stateDesc==""){
+            window.alert("There is no content in desc")
+          }
           setTode([...todo1, { title: stateTitle, desc: stateDesc }]);
           updateStateTitle('');
           updateStateDesc('')
@@ -80,7 +83,6 @@ function App() {
        <button
          onClick={() => {
           setTode([...todo1, { title: stateTitle, desc: stateDesc }]);
-          
           updateStateDesc('')
         
       }}
@@ -105,7 +107,6 @@ function App() {
         {todo1.map((obj) => {
           return (
             <li>
-              {' '}
               <div>{obj.title}</div>
               <div>{obj.desc}</div>
             </li>
