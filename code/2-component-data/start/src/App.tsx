@@ -56,8 +56,9 @@ function App() {
       </input>
       <button
          onClick={() => {
-          if(stateDesc==""){
-            window.alert("There is no content in desc")
+          if(stateDesc===""){
+              window.alert("There is no content in desc")
+              return
           }
           setTode([...todo1, { title: stateTitle, desc: stateDesc }]);
           updateStateTitle('');
@@ -82,6 +83,10 @@ function App() {
       }}></input>
        <button
          onClick={() => {
+          if(stateTitle===""){
+            window.alert("There is no content in title")
+            return
+          }
           setTode([...todo1, { title: stateTitle, desc: stateDesc }]);
           updateStateDesc('')
         
