@@ -113,7 +113,12 @@ function App() {
           return (
             <li>
               <div>{obj.title}</div>
-              <div>{obj.desc}</div>
+              <div
+              style={{
+                color:"pink",
+                padding: 8,
+                fontSize:15
+              }}>{obj.desc}</div>
             </li>
           );
         })}
