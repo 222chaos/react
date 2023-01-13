@@ -22,7 +22,16 @@ function App() {
   const [state, updateState] = useState<string>('0');
   const [stateTitle,updateStateTitle] = useState<string>('im title')
   const [stateDesc,updateStateDesc] = useState<string>('im desc')
-  const [todo1, setTode] = useState([]);
+  const [todo1, setTode] = useState(()=>{
+    const todoList=[]
+    for(let index=0;index<100;index++){
+      todoList.push({
+        title:"title"+index,
+        desc:"desc"+index
+      })
+    }
+    return todoList
+  });
   
   return (
     <article>
@@ -72,15 +81,8 @@ function App() {
       value={stateDesc}
       onChange={(e) => {
         updateStateDesc(e.target.value);
-        
       }}
-      onKeyDown={(e) => {
-        if (e.key === 'Enter') {
-          setTode([...todo1, { title: stateTitle, desc: stateDesc }]);
-          updateStateTitle('');
-          
-        }
-      }}></input>
+      ></input>
        <button
          onClick={() => {
           if(stateTitle===""){
@@ -89,7 +91,6 @@ function App() {
           }
           setTode([...todo1, { title: stateTitle, desc: stateDesc }]);
           updateStateDesc('')
-        
       }}
       >
         Desc
@@ -115,14 +116,25 @@ function App() {
               <div>{obj.title}</div>
               <div
               style={{
+                border:'true',
                 color:"pink",
                 padding: 8,
                 fontSize:15
               }}>{obj.desc}</div>
+              <hr></hr>
             </li>
           );
         })}
       </ul>
+      <div>
+                <ul>
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                    <li>5</li>
+                </ul>
+            </div>
     </article>
   );
 }
