@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import TodoListItem from './RecipeTitle';
 
 function App() {
+  
   function change() {
     setTodo([...todo, state]);
     updateState('');
@@ -34,6 +35,7 @@ function App() {
   });
   
   return (
+    
     <article>
       <h1>Todo</h1>
       <input
@@ -126,15 +128,6 @@ function App() {
           );
         })}
       </ul>
-      <div>
-                <ul>
-                    <li>1</li>
-                    <li>2</li>
-                    <li>3</li>
-                    <li>4</li>
-                    <li>5</li>
-                </ul>
-            </div>
     </article>
   );
 }
