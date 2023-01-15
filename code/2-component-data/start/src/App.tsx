@@ -23,9 +23,12 @@ function App() {
   const [state, updateState] = useState<string>('0');
   const [stateTitle,updateStateTitle] = useState<string>('im title')
   const [stateDesc,updateStateDesc] = useState<string>('im desc')
+    let total=0
+    let pagesize=5
   const [todo1, setTode] = useState(()=>{
     const todoList=[]
     for(let index=0;index<100;index++){
+      total++
       todoList.push({
         title:"title"+index,
         desc:"desc"+index
@@ -33,7 +36,10 @@ function App() {
     }
     return todoList
   });
-  
+  const [pageNum,setPageNum] =useState(0);
+    
+    
+ 
   return (
     
     <article>
@@ -112,13 +118,14 @@ function App() {
             />
           );
         })}
-        {todo1.map((obj) => {
+        {todo1.map((obj,index) => {
+          
+        
           return (
             <li>
               <div>{obj.title}</div>
               <div
               style={{
-                border:'true',
                 color:"pink",
                 padding: 8,
                 fontSize:15
@@ -127,6 +134,11 @@ function App() {
             </li>
           );
         })}
+
+        {function a(){setPageNum((total+pagesize-1)/pagesize)
+    for (let index=0;index<pageNum;index++){
+      return(<button>{index}</button>)
+    }}}
       </ul>
     </article>
   );
