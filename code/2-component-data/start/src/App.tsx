@@ -23,7 +23,7 @@ function App() {
   const [stateTitle, updateStateTitle] = useState<string>('im title');
   const [stateDesc, updateStateDesc] = useState<string>('im desc');
   const [clickPageNum, setClickPageNum] = useState<number>(1);
-  let total=0
+  let total = 0;
   const [todo1, setTode] = useState(() => {
     const todoList = [];
     for (let index = 0; index < 100; index++) {
@@ -36,11 +36,20 @@ function App() {
     return todoList;
   });
   /*
-  */
+   */
   let pagesize = 5;
-  const [pageNum, setPageNum] = useState<number>(Math.floor((total + pagesize - 1) / pagesize));
-  console.log("12  "+pageNum)
-  
+  const [pageNum, setPageNum] = useState<number>(() => {
+    let i = (total + pagesize - 1) / pagesize;
+    while (1) {
+      if (i % 1 === 0) {
+        return i;
+      } else {
+        total = total - 1;
+        i = (total + pagesize - 1) / pagesize;
+      }
+    }
+  });
+  //Math.floor((total + pagesize - 1) / pagesize));
   return (
     <article>
       <h1>Todo</h1>
@@ -89,7 +98,6 @@ function App() {
         }}
       ></input>
       <button
-      
         onClick={() => {
           if (stateTitle === '') {
             window.alert('There is no content in title');
@@ -142,10 +150,10 @@ function App() {
                 background: index !== clickPageNum - 1 ? 'white' : 'red',
               }}
               onClick={() => {
-                setClickPageNum(index+1);
+                setClickPageNum(index + 1);
               }}
             >
-              {index+1}
+              {index + 1}
             </button>
           );
         })}
