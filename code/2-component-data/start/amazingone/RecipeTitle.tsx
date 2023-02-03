@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Button, Text, TextInput, View} from 'react-native/types';
+import {Button, Text, TextInput, View} from 'react-native';
 
 function TodoListItem(props: any) {
   const hover = 1;
@@ -12,52 +12,59 @@ function TodoListItem(props: any) {
   }
   return (
     <View>
-      {props.content}
-      <View>
-        {hover === 1 ? (
-          <Button
-            title='"↑"'
-            onPress={() => {
-              props.swapItem(props.index - 1, props.index);
-            }}
-          />
-        ) : null}
-        {hover === 1 ? (
-          <Button
-            title='"↓"'
-            onPress={() => {
-              props.swapItem(props.index, props.index + 1);
-            }}
-          />
-        ) : null}
-        {hover === 1 ? (
-          <Button
-            title='""×"'
-            onPress={() => {
-              props.onDelete(props.index);
-            }}
-          />
-        ) : null}
-        {hover === 1 ? (
-          <TextInput
-            onChangeText={text => onChangeText1(text)}
-            value={value1}
-          />
-        ) : null}
-        {hover === 1 ? (
-          <Button
-            title='"Orz"'
-            onPress={() => {
-              console.log(desctodo);
-              descChange();
-            }}
-          />
-        ) : null}
-      </View>
-      {desctodo.map(item => (
-        <View>{item}</View>
-      ))}
-      {props.splitLine ? <Text>......</Text> : null}
+      <Text>
+        {props.content}
+        <View>
+          <Text>
+            {hover === 1 ? (
+              <Button
+                title='"↑"'
+                onPress={() => {
+                  props.swapItem(props.index - 1, props.index);
+                }}
+              />
+            ) : null}
+            {hover === 1 ? (
+              <Button
+                title='"↓"'
+                onPress={() => {
+                  props.swapItem(props.index, props.index + 1);
+                }}
+              />
+            ) : null}
+            {hover === 1 ? (
+              <Button
+                title='""×"'
+                onPress={() => {
+                  props.onDelete(props.index);
+                }}
+              />
+            ) : null}
+            {hover === 1 ? (
+              <TextInput
+                style={{height: 40, borderColor: 'gray', borderWidth: 1}}
+                onChangeText={text => onChangeText1(text)}
+                value={value1}
+              />
+            ) : null}
+            {hover === 1 ? (
+              <Button
+                title='"Orz"'
+                onPress={() => {
+                  console.log(desctodo);
+                  descChange();
+                }}
+              />
+            ) : null}
+          </Text>
+        </View>
+        {desctodo.map((item, _) => (
+          <View>
+            <Text>{item}</Text>
+          </View>
+        ))}
+        {props.splitLine ? <Text>......</Text> : null}
+      </Text>
     </View>
   );
 }

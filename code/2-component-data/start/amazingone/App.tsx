@@ -5,114 +5,154 @@
  * @format
  */
 
-import React from 'react';
-import type {PropsWithChildren} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
+import React, {useState} from 'react';
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+import {View, Button, TextInput, Text} from 'react-native';
 
-type SectionProps = PropsWithChildren<{
-  title: string;
-}>;
+import TodoListItem from './RecipeTitle';
 
-function Section({children, title}: SectionProps): JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
+function App(): JSX.Element {
+  function change() {
+    setTodo([...todo, state]);
+    updateState('');
+    onChangeText1('');
+  }
+
+  function onDelete(index: any) {
+    todo.splice(index, 1);
+    setTodo([...todo]);
+  }
+  function swapItem(index1: any, index2: any) {
+    var temp = todo[index1];
+    todo[index1] = todo[index2];
+    todo[index2] = temp;
+    setTodo([...todo]);
+  }
+  const [todo, setTodo] = useState<Array<any>>([]);
+  const [state, updateState] = useState<any>('0');
+  const [stateTitle, updateStateTitle] = useState<any>('im title');
+  const [stateDesc, updateStateDesc] = useState<any>('im desc');
+  const [clickPageNum, setClickPageNum] = useState<any>(1);
+  let total = 0;
+  const [todo1, setTode] = useState(() => {
+    const todoList = [1];
+    return todoList;
+  });
+  const [value1, onChangeText1] = React.useState('0');
+  const [value2, onChangeText2] = React.useState('im title');
+  const [value3, onChangeText3] = React.useState('im desc');
+  let pagesize = 5;
+  const [pageNum] = useState<any>(() => {
+    let i = (total + pagesize - 1) / pagesize;
+    while (1) {
+      if (i % 1 === 0) {
+        return i;
+      } else {
+        total = total - 1;
+        i = (total + pagesize - 1) / pagesize;
+      }
+    }
+  });
+
+  //Math.floor((total + pagesize - 1) / pagesize));
   return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
+    <View>
+      <Text>
+        <Text>Todo</Text>
+        <TextInput onChangeText={text => onChangeText1(text)} value={value1} />
+        <Button
+          title="Orz"
+          onPress={() => {
+            change();
+          }}
+        />
+        <TextInput
+          style={{height: 40, borderColor: 'gray', borderWidth: 1}}
+          onChangeText={text => onChangeText2(text)}
+          value={value2}
+        />
+        <Button
+          title="Title"
+          onPress={() => {
+            if (stateDesc === '') {
+              return;
+            }
+            setTode([...todo1, {title: stateTitle, desc: stateDesc}]);
+            updateStateTitle('');
+            onChangeText2('');
+            updateStateDesc('');
+            onChangeText3('');
+          }}
+        />
+        <TextInput
+          style={{height: 40, borderColor: 'gray', borderWidth: 1}}
+          onChangeText={text => onChangeText3(text)}
+          value={value3}
+        />
+        <Button
+          title="Desc"
+          onPress={() => {
+            if (stateTitle === '') {
+              return;
+            }
+            setTode([...todo1, {title: stateTitle, desc: stateDesc}]);
+            updateStateDesc('');
+            onChangeText3('');
+          }}
+        />
+
+        <View>
+          <Text>
+            <View>
+              <Text>{state}</Text>
+            </View>
+            {todo.map((item, index) => {
+              return (
+                <TodoListItem
+                  content={item}
+                  splitLine={(index + 1) % 5 === 0}
+                  onDelete={onDelete}
+                  index={index}
+                  swapItem={swapItem}
+                  change={change}
+                />
+              );
+            })}
+            {todo1.map((obj, index) => {
+              if (
+                index > (clickPageNum - 1) * pagesize - 1 &&
+                index < clickPageNum * pagesize
+              ) {
+                return (
+                  <View>
+                    <Text>
+                      <View>
+                        <Text>{obj.title}</Text>
+                      </View>
+                      <View>
+                        <Text>{obj.desc}</Text>
+                      </View>
+                      <Text>......</Text>
+                    </Text>
+                  </View>
+                );
+              }
+            })}
+            {new Array(pageNum).fill(null).map((_, index) => {
+              return (
+                <Button
+                  title="{index + 1}"
+                  color={index !== clickPageNum - 1 ? 'white' : 'red'}
+                  onPress={() => {
+                    setClickPageNum(index + 1);
+                  }}
+                />
+              );
+            })}
+          </Text>
+        </View>
       </Text>
     </View>
   );
 }
-
-function App(): JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
-  return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
-        </View>
-      </ScrollView>
-    </SafeAreaView>
-  );
-}
-
-const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-});
-
 export default App;
