@@ -18,7 +18,7 @@ function TodoListItem(props: any) {
           <Text>
             {hover === 1 ? (
               <Button
-                title='"↑"'
+                title="↑"
                 onPress={() => {
                   props.swapItem(props.index - 1, props.index);
                 }}
@@ -26,7 +26,7 @@ function TodoListItem(props: any) {
             ) : null}
             {hover === 1 ? (
               <Button
-                title='"↓"'
+                title="↓"
                 onPress={() => {
                   props.swapItem(props.index, props.index + 1);
                 }}
@@ -34,7 +34,7 @@ function TodoListItem(props: any) {
             ) : null}
             {hover === 1 ? (
               <Button
-                title='""×"'
+                title="×"
                 onPress={() => {
                   props.onDelete(props.index);
                 }}
@@ -42,14 +42,13 @@ function TodoListItem(props: any) {
             ) : null}
             {hover === 1 ? (
               <TextInput
-                style={{height: 40, borderColor: 'gray', borderWidth: 1}}
                 onChangeText={text => onChangeText1(text)}
                 value={value1}
               />
             ) : null}
             {hover === 1 ? (
               <Button
-                title='"Orz"'
+                title="Orz"
                 onPress={() => {
                   console.log(desctodo);
                   descChange();
