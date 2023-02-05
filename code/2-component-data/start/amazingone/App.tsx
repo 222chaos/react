@@ -31,7 +31,7 @@ function App(): JSX.Element {
   const [value1, onChangeText1] = React.useState('');
   //Math.floor((total + pagesize - 1) / pagesize));
   return (
-    <View>
+    <View style={{padding: 10}}>
       <View>
         <View>
           <Text
@@ -70,6 +70,7 @@ function App(): JSX.Element {
               width: 100,
               flexWrap: 'wrap',
               display: 'flex',
+              flexDirection: 'row',
             }}>
             {todo.map((item, index) => {
               return (
