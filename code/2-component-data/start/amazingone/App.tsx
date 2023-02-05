@@ -13,8 +13,7 @@ import TodoListItem from './RecipeTitle';
 
 function App(): JSX.Element {
   function change() {
-    setTodo([...todo, state]);
-    updateState('');
+    setTodo([...todo, value1]);
     onChangeText1('');
   }
 
@@ -29,40 +28,67 @@ function App(): JSX.Element {
     setTodo([...todo]);
   }
   const [todo, setTodo] = useState<Array<any>>([]);
-  const [state, updateState] = useState<any>('');
   const [value1, onChangeText1] = React.useState('');
   //Math.floor((total + pagesize - 1) / pagesize));
   return (
     <View>
-      <Text>
-        <Text>Todo</Text>
-        <TextInput onChangeText={text => onChangeText1(text)} value={value1} />
+      <View>
+        <View>
+          <Text
+            style={{
+              fontSize: 30,
+            }}>
+            Todo
+          </Text>
+        </View>
+        <View
+          style={{
+            backgroundColor: value1,
+            borderBottomColor: '#000000',
+            borderBottomWidth: 1,
+          }}>
+          <TextInput
+            multiline
+            numberOfLines={4}
+            onChangeText={(text: any) => onChangeText1(text)}
+            value={value1}
+          />
+        </View>
         <Button
-          title="Orz"
+          title="OK"
           onPress={() => {
             change();
           }}
         />
         <View>
-          <Text>
-            <View>
-              <Text>{state}</Text>
-            </View>
+          <Text
+            style={{
+              lineHeight: 80,
+              position: 'absolute',
+              textAlign: 'right',
+              right: 50,
+              width: 100,
+              flexWrap: 'wrap',
+              display: 'flex',
+              flexDirection: 'row',
+            }}>
             {todo.map((item, index) => {
               return (
-                <TodoListItem
-                  content={item}
-                  splitLine={(index + 1) % 5 === 0}
-                  onDelete={onDelete}
-                  index={index}
-                  swapItem={swapItem}
-                  change={change}
-                />
+                <View>
+                  <TodoListItem
+                    content={item}
+                    splitLine={(index + 1) % 5 === 0}
+                    onDelete={onDelete}
+                    index={index}
+                    swapItem={swapItem}
+                    change={change}
+                  />
+                </View>
               );
             })}
           </Text>
         </View>
-      </Text>
+      </View>
     </View>
   );
 }

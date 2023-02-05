@@ -13,7 +13,9 @@ function TodoListItem(props: any) {
   return (
     <View>
       <Text>
-        {props.content}
+        <View>
+          <Text>{props.content}</Text>
+        </View>
         <View>
           <Text>
             {hover === 1 ? (
@@ -62,8 +64,17 @@ function TodoListItem(props: any) {
             <Text>{item}</Text>
           </View>
         ))}
-        {props.splitLine ? <Text>......</Text> : null}
       </Text>
+      <View>
+        {props.splitLine ? (
+          <Text
+            style={{
+              fontSize: 30,
+            }}>
+            …………
+          </Text>
+        ) : null}
+      </View>
     </View>
   );
 }
