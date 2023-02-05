@@ -63,14 +63,13 @@ function App(): JSX.Element {
         <View>
           <Text
             style={{
-              lineHeight: 80,
+              lineHeight: 60,
               position: 'absolute',
               textAlign: 'right',
               right: 50,
               width: 100,
               flexWrap: 'wrap',
               display: 'flex',
-              flexDirection: 'row',
             }}>
             {todo.map((item, index) => {
               return (

@@ -17,7 +17,8 @@ function TodoListItem(props: any) {
           <Text>{props.content}</Text>
         </View>
         <View>
-          <Text>
+          <Text style={{}}>
+            <Text> </Text>
             {hover === 1 ? (
               <Button
                 title="↑"
@@ -26,6 +27,7 @@ function TodoListItem(props: any) {
                 }}
               />
             ) : null}
+            <Text> </Text>
             {hover === 1 ? (
               <Button
                 title="↓"
@@ -34,6 +36,7 @@ function TodoListItem(props: any) {
                 }}
               />
             ) : null}
+            <Text> </Text>
             {hover === 1 ? (
               <Button
                 title="×"
@@ -42,12 +45,14 @@ function TodoListItem(props: any) {
                 }}
               />
             ) : null}
+            <Text> </Text>
             {hover === 1 ? (
               <TextInput
                 onChangeText={text => onChangeText1(text)}
                 value={value1}
               />
             ) : null}
+            <Text> </Text>
             {hover === 1 ? (
               <Button
                 title="Orz"
@@ -57,6 +62,7 @@ function TodoListItem(props: any) {
                 }}
               />
             ) : null}
+            <Text> </Text>
           </Text>
         </View>
         {desctodo.map((item, _) => (
