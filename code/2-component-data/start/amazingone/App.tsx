@@ -7,7 +7,7 @@
 
 import React, {useState} from 'react';
 
-import {View, Button, TextInput, Text} from 'react-native';
+import {View, Button, TextInput, Text, ScrollView} from 'react-native';
 
 import TodoListItem from './RecipeTitle';
 
@@ -31,14 +31,19 @@ function App(): JSX.Element {
   const [value1, onChangeText1] = React.useState('');
   //Math.floor((total + pagesize - 1) / pagesize));
   return (
-    <View style={{padding: 10}}>
+    <View style={{padding: 10, backgroundColor: 'black'}}>
       <View>
         <View>
           <Text
             style={{
+              fontStyle: 'italic',
+              padding: 8,
+              color: 'purple',
+              top: 10,
+              left: 10,
               fontSize: 30,
             }}>
-            Todo
+            Todo🍅
           </Text>
         </View>
         <View
@@ -48,6 +53,10 @@ function App(): JSX.Element {
             borderBottomWidth: 1,
           }}>
           <TextInput
+            style={{
+              backgroundColor: 'black',
+              color: 'white',
+            }}
             multiline
             numberOfLines={4}
             onChangeText={(text: any) => onChangeText1(text)}
@@ -63,6 +72,7 @@ function App(): JSX.Element {
         <View>
           <Text
             style={{
+              textDecorationLine: 'underline line-through',
               lineHeight: 60,
               position: 'absolute',
               textAlign: 'right',

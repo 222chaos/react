@@ -3,18 +3,23 @@ import {Button, Text, TextInput, View} from 'react-native';
 
 function TodoListItem(props: any) {
   const hover = 1;
-  const [descState, updatedescState] = useState<string>('1');
-  const [desctodo, setdescTodo] = useState<Array<string>>([]);
+  const [desctodo, _] = useState<Array<string>>([]);
   const [value1, onChangeText1] = React.useState('0');
-  function descChange() {
-    setdescTodo([...desctodo, descState]);
-    updatedescState('');
-  }
   return (
     <View>
-      <Text>
+      <Text style={{}}>
         <View>
           <Text>{props.content}</Text>
+          <Text
+            style={{
+              height: 0,
+              width: '100%',
+              borderWidth: 0.5,
+              borderColor: '#EEE',
+              borderStyle: 'dashed',
+            }}>
+            123
+          </Text>
         </View>
         <View>
           <Text style={{}}>
@@ -53,16 +58,6 @@ function TodoListItem(props: any) {
               />
             ) : null}
             <Text> </Text>
-            {hover === 1 ? (
-              <Button
-                title="Orz"
-                onPress={() => {
-                  console.log(desctodo);
-                  descChange();
-                }}
-              />
-            ) : null}
-            <Text> </Text>
           </Text>
         </View>
         {desctodo.map((item, _) => (
@@ -72,14 +67,15 @@ function TodoListItem(props: any) {
         ))}
       </Text>
       <View>
-        {props.splitLine ? (
-          <Text
-            style={{
-              fontSize: 30,
-            }}>
-            …………
-          </Text>
-        ) : null}
+        <View
+          style={{
+            right: 250,
+            height: 0,
+            width: '3000%',
+            borderWidth: 0.5,
+            borderColor: '#EE',
+            borderStyle: 'dashed',
+          }}></View>
       </View>
     </View>
   );
