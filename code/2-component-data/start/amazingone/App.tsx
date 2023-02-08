@@ -7,10 +7,12 @@
 
 import React, {useState} from 'react';
 
-import {View, Button, TextInput, Text, ScrollView} from 'react-native';
+import {View, Button, TextInput, Text, Dimensions} from 'react-native';
 
 import TodoListItem from './RecipeTitle';
 
+const screenHeight = Dimensions.get('window').height;
+const screenWidth = Dimensions.get('window').width;
 function App(): JSX.Element {
   function change() {
     setTodo([...todo, value1]);
@@ -31,8 +33,14 @@ function App(): JSX.Element {
   const [value1, onChangeText1] = React.useState('');
   //Math.floor((total + pagesize - 1) / pagesize));
   return (
-    <View style={{padding: 10, backgroundColor: 'black'}}>
-      <View>
+    <View
+      style={{
+        padding: 10,
+        backgroundColor: 'black',
+        height: screenHeight,
+        width: screenWidth,
+      }}>
+      <View style={{}}>
         <View>
           <Text
             style={{
