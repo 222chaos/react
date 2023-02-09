@@ -37,7 +37,7 @@ function App(): JSX.Element {
       style={{
         padding: 10,
         backgroundColor: 'black',
-        height: screenHeight,
+        height: screenHeight + 20,
         width: screenWidth,
       }}>
       <View style={{}}>
