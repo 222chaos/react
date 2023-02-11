@@ -1,13 +1,20 @@
 import React, {useState} from 'react';
-import {Button, Text, TextInput, View} from 'react-native';
-
+import {Button, Text, TextInput, View, Dimensions} from 'react-native';
+const screenHeight = Dimensions.get('window').height;
+const screenWidth = Dimensions.get('window').width;
 function TodoListItem(props: any) {
   const hover = 1;
   const [desctodo, _] = useState<Array<string>>([]);
   const [value1, onChangeText1] = React.useState('0');
   return (
     <View>
-      <Text style={{}}>
+      <Text
+        style={{
+          padding: 10,
+          backgroundColor: 'black',
+          height: screenHeight + 999,
+          width: screenWidth + 999,
+        }}>
         <View>
           <Text>{props.content}</Text>
           <Text
