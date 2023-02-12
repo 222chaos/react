@@ -84,7 +84,7 @@ function App(): JSX.Element {
               lineHeight: 60,
               position: 'absolute',
               textAlign: 'right',
-              right: 65,
+              right: 18,
               width: 100,
               flexWrap: 'wrap',
               display: 'flex',

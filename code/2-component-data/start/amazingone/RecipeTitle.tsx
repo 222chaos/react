@@ -7,16 +7,7 @@ function TodoListItem(props: any) {
   return (
     <View>
       <View style={{paddingTop: 10}}>
-        <Text
-          style={{
-            height: 0,
-            width: '100%',
-            borderWidth: 0.5,
-            borderColor: '#EEE',
-            borderStyle: 'solid',
-          }}>
-          --------------------------------------------
-        </Text>
+        <Text></Text>
       </View>
       <View
         style={{
@@ -34,7 +25,7 @@ function TodoListItem(props: any) {
             {props.content}
           </Text>
         </View>
-        <View style={{position: 'absolute', left: 160, top: 10}}>
+        <View style={{position: 'absolute', left: 220, top: 10}}>
           <Text>
             <Text> </Text>
             {hover === 1 ? (
@@ -88,7 +79,7 @@ function TodoListItem(props: any) {
             borderColor: '#EEE',
             borderStyle: 'solid',
           }}>
-          --------------------------------------------
+          ---------------------------------------------------------------
         </Text>
       </View>
     </View>
