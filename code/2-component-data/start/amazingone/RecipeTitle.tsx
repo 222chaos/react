@@ -76,10 +76,10 @@ function TodoListItem(props: any) {
             height: 0,
             width: '100%',
             borderWidth: 0.18182,
-            borderColor: '#EEE',
+            borderColor: 'rgba(255, 255, 255, 0.18182)',
             borderStyle: 'solid',
           }}>
-          ---------------------------------------------------------------
+          --------------------------------------------------------------
         </Text>
       </View>
     </View>
