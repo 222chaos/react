@@ -6,26 +6,36 @@ function TodoListItem(props: any) {
   const [value1, onChangeText1] = React.useState('0');
   return (
     <View>
-      <Text
+      <View style={{paddingTop: 10}}>
+        <Text
+          style={{
+            height: 0,
+            width: '100%',
+            borderWidth: 0.5,
+            borderColor: '#EEE',
+            borderStyle: 'solid',
+          }}>
+          --------------------------------------------
+        </Text>
+      </View>
+      <View
         style={{
           padding: 10,
           backgroundColor: 'black',
         }}>
-        <View>
-          <Text>{props.content}</Text>
+        <View
+          style={{
+            padding: 10,
+          }}>
           <Text
             style={{
-              height: 0,
-              width: '100%',
-              borderWidth: 0.5,
-              borderColor: '#EEE',
-              borderStyle: 'dashed',
+              color: 'white',
             }}>
-            123
+            {props.content}
           </Text>
         </View>
-        <View>
-          <Text style={{}}>
+        <View style={{position: 'absolute', left: 160, top: 10}}>
+          <Text>
             <Text> </Text>
             {hover === 1 ? (
               <Button
@@ -68,17 +78,18 @@ function TodoListItem(props: any) {
             <Text>{item}</Text>
           </View>
         ))}
-      </Text>
-      <View>
-        <View
+      </View>
+      <View style={{}}>
+        <Text
           style={{
-            right: 250,
             height: 0,
-            width: '3000%',
+            width: '100%',
             borderWidth: 0.5,
-            borderColor: '#EE',
-            borderStyle: 'dashed',
-          }}></View>
+            borderColor: '#EEE',
+            borderStyle: 'solid',
+          }}>
+          --------------------------------------------
+        </Text>
       </View>
     </View>
   );
