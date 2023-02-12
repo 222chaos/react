@@ -75,7 +75,7 @@ function TodoListItem(props: any) {
           style={{
             height: 0,
             width: '100%',
-            borderWidth: 0.5,
+            borderWidth: 0.18182,
             borderColor: '#EEE',
             borderStyle: 'solid',
           }}>
