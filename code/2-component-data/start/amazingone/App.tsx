@@ -45,7 +45,7 @@ function App(): JSX.Element {
           <Text
             style={{
               fontStyle: 'italic',
-              padding: 8,
+              padding: 10,
               color: 'purple',
               top: 10,
               left: 10,
