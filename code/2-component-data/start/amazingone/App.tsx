@@ -35,8 +35,8 @@ function App(): JSX.Element {
   return (
     <View
       style={{
-        padding: 10,
-        backgroundColor: 'black',
+        padding: 8,
+        backgroundColor: 'papayawhip',
         height: screenHeight + 20,
         width: screenWidth,
       }}>
@@ -45,7 +45,7 @@ function App(): JSX.Element {
           <Text
             style={{
               fontStyle: 'italic',
-              padding: 10,
+              padding: 5,
               color: 'purple',
               top: 10,
               left: 10,
@@ -62,8 +62,8 @@ function App(): JSX.Element {
           }}>
           <TextInput
             style={{
-              backgroundColor: 'black',
-              color: 'white',
+              backgroundColor: 'oldlace',
+              color: 'black',
             }}
             multiline
             numberOfLines={4}
@@ -77,18 +77,16 @@ function App(): JSX.Element {
             change();
           }}
         />
-        <View>
+        <View style={{position: 'absolute', right: 35, top: 250}}>
           <Text
             style={{
-              textDecorationLine: 'underline line-through',
-              lineHeight: 60,
+              lineHeight: 20,
               position: 'absolute',
               textAlign: 'right',
               right: 18,
-              width: 100,
+              width: 80,
               flexWrap: 'wrap',
               display: 'flex',
-              flexDirection: 'row',
             }}>
             {todo.map((item, index) => {
               return (

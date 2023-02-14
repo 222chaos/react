@@ -5,18 +5,15 @@ function TodoListItem(props: any) {
   const [desctodo, _] = useState<Array<string>>([]);
   const [value1, onChangeText1] = React.useState('0');
   return (
-    <View>
-      <View style={{paddingTop: 10}}>
-        <Text></Text>
-      </View>
+    <View style={{}}>
       <View
         style={{
-          padding: 10,
-          backgroundColor: 'black',
+          padding: 2,
+          backgroundColor: 'silver',
         }}>
         <View
           style={{
-            padding: 10,
+            padding: 20,
           }}>
           <Text
             style={{
@@ -26,43 +23,49 @@ function TodoListItem(props: any) {
           </Text>
         </View>
         <View style={{position: 'absolute', left: 220, top: 10}}>
-          <Text>
-            <Text> </Text>
-            {hover === 1 ? (
-              <Button
-                title="↑"
-                onPress={() => {
-                  props.swapItem(props.index - 1, props.index);
-                }}
-              />
-            ) : null}
-            <Text> </Text>
-            {hover === 1 ? (
+          <Text> </Text>
+          {hover === 1 ? (
+            <View style={{position: 'absolute', top: 100}}>
+              <View>
+                <Button
+                  title="↑"
+                  onPress={() => {
+                    props.swapItem(props.index - 1, props.index);
+                  }}
+                />
+              </View>
+            </View>
+          ) : null}
+          <Text> </Text>
+          {hover === 1 ? (
+            <View style={{position: 'relative', top: 10}}>
               <Button
                 title="↓"
                 onPress={() => {
                   props.swapItem(props.index, props.index + 1);
                 }}
               />
-            ) : null}
-            <Text> </Text>
-            {hover === 1 ? (
+            </View>
+          ) : null}
+          <Text> </Text>
+          {hover === 1 ? (
+            <View style={{width: 40, height: 40}}>
               <Button
                 title="×"
                 onPress={() => {
                   props.onDelete(props.index);
                 }}
               />
-            ) : null}
-            <Text> </Text>
-            {hover === 1 ? (
-              <TextInput
-                onChangeText={text => onChangeText1(text)}
-                value={value1}
-              />
-            ) : null}
-            <Text> </Text>
-          </Text>
+            </View>
+          ) : null}
+          <Text> </Text>
+          {hover === 1 ? (
+            <TextInput
+              onChangeText={text => onChangeText1(text)}
+              value={value1}
+            />
+          ) : null}
+          <Text> </Text>
         </View>
         {desctodo.map((item, _) => (
           <View>
@@ -74,12 +77,12 @@ function TodoListItem(props: any) {
         <Text
           style={{
             height: 0,
-            width: '100%',
+            width: '80%',
             borderWidth: 0.18182,
             borderColor: 'rgba(255, 255, 255, 0.18182)',
             borderStyle: 'solid',
           }}>
-          --------------------------------------------------------------
+          -----------------------------------------------------
         </Text>
       </View>
     </View>
