@@ -49,7 +49,7 @@ function App(): JSX.Element {
               color: 'purple',
               top: 10,
               left: 10,
-              fontSize: 30,
+              fontSize: 50,
             }}>
             Todo🍅
           </Text>
