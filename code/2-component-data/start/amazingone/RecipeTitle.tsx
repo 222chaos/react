@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {Button, Text, TextInput, View} from 'react-native';
 function TodoListItem(props: any) {
   const hover = 1;
@@ -24,7 +24,7 @@ function TodoListItem(props: any) {
         <View style={{position: 'absolute'}}>
           <Text> </Text>
           {hover === 1 ? (
-            <View style={{position: 'absolute', top: 0, left: 260}}>
+            <View style={{position: 'absolute', top: 1, left: 260}}>
               <Button
                 title="↑"
                 onPress={() => {
@@ -35,7 +35,7 @@ function TodoListItem(props: any) {
           ) : null}
           <Text> </Text>
           {hover === 1 ? (
-            <View style={{position: 'absolute', top: 35, left: 260}}>
+            <View style={{position: 'absolute', top: 36.5, left: 260}}>
               <Button
                 title="↓"
                 onPress={() => {
