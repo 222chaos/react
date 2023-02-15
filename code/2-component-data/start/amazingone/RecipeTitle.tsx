@@ -2,8 +2,7 @@ import React, {useState} from 'react';
 import {Button, Text, TextInput, View} from 'react-native';
 function TodoListItem(props: any) {
   const hover = 1;
-  const [desctodo, _] = useState<Array<string>>([]);
-  const [value1, onChangeText1] = React.useState('0');
+  const [value1, onChangeText1] = React.useState('');
   return (
     <View style={{}}>
       <View
@@ -13,7 +12,7 @@ function TodoListItem(props: any) {
         }}>
         <View
           style={{
-            padding: 20,
+            padding: 25,
           }}>
           <Text
             style={{
@@ -22,23 +21,21 @@ function TodoListItem(props: any) {
             {props.content}
           </Text>
         </View>
-        <View style={{position: 'absolute', left: 220, top: 10}}>
+        <View style={{position: 'absolute'}}>
           <Text> </Text>
           {hover === 1 ? (
-            <View style={{position: 'absolute', top: 100}}>
-              <View>
-                <Button
-                  title="↑"
-                  onPress={() => {
-                    props.swapItem(props.index - 1, props.index);
-                  }}
-                />
-              </View>
+            <View style={{position: 'absolute', top: 0, left: 260}}>
+              <Button
+                title="↑"
+                onPress={() => {
+                  props.swapItem(props.index - 1, props.index);
+                }}
+              />
             </View>
           ) : null}
           <Text> </Text>
           {hover === 1 ? (
-            <View style={{position: 'relative', top: 10}}>
+            <View style={{position: 'absolute', top: 35, left: 260}}>
               <Button
                 title="↓"
                 onPress={() => {
@@ -49,7 +46,13 @@ function TodoListItem(props: any) {
           ) : null}
           <Text> </Text>
           {hover === 1 ? (
-            <View style={{width: 40, height: 40}}>
+            <View
+              style={{
+                position: 'absolute',
+                top: 18,
+                left: 290,
+                width: 35,
+              }}>
               <Button
                 title="×"
                 onPress={() => {
@@ -67,11 +70,6 @@ function TodoListItem(props: any) {
           ) : null}
           <Text> </Text>
         </View>
-        {desctodo.map((item, _) => (
-          <View>
-            <Text>{item}</Text>
-          </View>
-        ))}
       </View>
       <View style={{}}>
         <Text
