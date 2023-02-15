@@ -75,9 +75,9 @@ function TodoListItem(props: any) {
         <Text
           style={{
             height: 0,
-            width: '80%',
+            width: '100%',
             borderWidth: 0.18182,
-            borderColor: 'rgba(255, 255, 255, 0.18182)',
+            borderColor: 'rgba(255, 255, 255, 0.5)',
             borderStyle: 'solid',
           }}>
           -----------------------------------------------------

@@ -56,9 +56,11 @@ function App(): JSX.Element {
         </View>
         <View
           style={{
+            position: 'absolute',
+            width: 370,
+            top: 680,
             backgroundColor: value1,
             borderBottomColor: '#000000',
-            borderBottomWidth: 1,
           }}>
           <TextInput
             style={{
@@ -71,19 +73,26 @@ function App(): JSX.Element {
             value={value1}
           />
         </View>
-        <Button
-          title="OK"
-          onPress={() => {
-            change();
-          }}
-        />
-        <View style={{position: 'absolute', right: 35, top: 250}}>
+        <View
+          style={{
+            width: 370,
+            left: 5,
+            top: 700,
+          }}>
+          <Button
+            title="OK"
+            onPress={() => {
+              change();
+            }}
+          />
+        </View>
+        <View style={{position: 'absolute', right: 55, top: 100}}>
           <Text
             style={{
               lineHeight: 20,
               position: 'absolute',
               textAlign: 'right',
-              right: 18,
+              right: 5,
               width: 80,
               flexWrap: 'wrap',
               display: 'flex',
