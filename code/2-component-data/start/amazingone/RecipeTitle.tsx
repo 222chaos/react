@@ -1,8 +1,7 @@
 import React from 'react';
-import {Button, Text, TextInput, View} from 'react-native';
+import {Text, TouchableHighlight, View} from 'react-native';
 function TodoListItem(props: any) {
   const hover = 1;
-  const [value1, onChangeText1] = React.useState('');
   return (
     <View style={{}}>
       <View
@@ -12,36 +11,41 @@ function TodoListItem(props: any) {
         }}>
         <View
           style={{
-            padding: 25,
+            padding: 16,
+            left: 30,
           }}>
           <Text
             style={{
-              color: 'white',
+              fontSize: 16,
+              fontStyle: 'italic',
+              color: 'black',
             }}>
             {props.content}
           </Text>
         </View>
-        <View style={{position: 'absolute'}}>
-          <Text> </Text>
+        <View style={{position: 'absolute', top: 8}}>
+          <View style={{left: 10, height: 18, width: 28}}>
+            <Text>——</Text>
+          </View>
           {hover === 1 ? (
-            <View style={{position: 'absolute', top: 1, left: 260}}>
-              <Button
-                title="↑"
-                onPress={() => {
-                  props.swapItem(props.index - 1, props.index);
-                }}
-              />
-            </View>
-          ) : null}
-          <Text> </Text>
-          {hover === 1 ? (
-            <View style={{position: 'absolute', top: 36.5, left: 260}}>
-              <Button
-                title="↓"
-                onPress={() => {
-                  props.swapItem(props.index, props.index + 1);
-                }}
-              />
+            <View style={{}}>
+              <View
+                style={{
+                  position: 'absolute',
+                  top: -8,
+                  left: 7.5,
+                  height: 30,
+                  width: 20,
+                }}>
+                <TouchableHighlight
+                  activeOpacity={0.9}
+                  underlayColor={'#1aaf00'}
+                  onPress={() => {
+                    props.swapItem(props.index - 1, props.index);
+                  }}>
+                  <Text style={{fontSize: 20}}>↑</Text>
+                </TouchableHighlight>
+              </View>
             </View>
           ) : null}
           <Text> </Text>
@@ -49,26 +53,20 @@ function TodoListItem(props: any) {
             <View
               style={{
                 position: 'absolute',
-                top: 18,
-                left: 290,
-                width: 35,
+                top: 2,
+                left: 330,
+                width: 18,
               }}>
-              <Button
-                title="×"
+              <TouchableHighlight
+                activeOpacity={0.9}
+                underlayColor={'#1aaf00'}
                 onPress={() => {
                   props.onDelete(props.index);
-                }}
-              />
+                }}>
+                <Text style={{fontSize: 30}}>×</Text>
+              </TouchableHighlight>
             </View>
           ) : null}
-          <Text> </Text>
-          {hover === 1 ? (
-            <TextInput
-              onChangeText={text => onChangeText1(text)}
-              value={value1}
-            />
-          ) : null}
-          <Text> </Text>
         </View>
       </View>
       <View style={{}}>
@@ -80,7 +78,7 @@ function TodoListItem(props: any) {
             borderColor: 'rgba(255, 255, 255, 0.5)',
             borderStyle: 'solid',
           }}>
-          -----------------------------------------------------
+          ------------------------------------------------------------------
         </Text>
       </View>
     </View>

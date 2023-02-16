@@ -54,39 +54,8 @@ function App(): JSX.Element {
             Todo🍅
           </Text>
         </View>
-        <View
-          style={{
-            position: 'absolute',
-            width: 370,
-            top: 680,
-            backgroundColor: value1,
-            borderBottomColor: '#000000',
-          }}>
-          <TextInput
-            style={{
-              backgroundColor: 'oldlace',
-              color: 'black',
-            }}
-            multiline
-            numberOfLines={4}
-            onChangeText={(text: any) => onChangeText1(text)}
-            value={value1}
-          />
-        </View>
-        <View
-          style={{
-            width: 370,
-            left: 5,
-            top: 700,
-          }}>
-          <Button
-            title="OK"
-            onPress={() => {
-              change();
-            }}
-          />
-        </View>
-        <View style={{position: 'absolute', right: 55, top: 100}}>
+
+        <View style={{position: 'absolute', right: 2, top: 100}}>
           <Text
             style={{
               lineHeight: 20,
@@ -112,6 +81,38 @@ function App(): JSX.Element {
               );
             })}
           </Text>
+        </View>
+        <View
+          style={{
+            position: 'relative',
+            width: 370,
+            top: 600,
+            backgroundColor: value1,
+            borderBottomColor: '#000000',
+          }}>
+          <TextInput
+            style={{
+              backgroundColor: 'oldlace',
+              color: 'black',
+            }}
+            multiline
+            numberOfLines={4}
+            onChangeText={(text: any) => onChangeText1(text)}
+            value={value1}
+          />
+        </View>
+        <View
+          style={{
+            width: 370,
+            left: 5,
+            top: 600,
+          }}>
+          <Button
+            title="OK"
+            onPress={() => {
+              change();
+            }}
+          />
         </View>
       </View>
     </View>
