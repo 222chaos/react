@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 /**
  * Sample React Native App
  * https://github.com/facebook/react-native
@@ -7,7 +8,14 @@
 
 import React, {useState} from 'react';
 
-import {View, Button, TextInput, Text, Dimensions} from 'react-native';
+import {
+  View,
+  TextInput,
+  Text,
+  Dimensions,
+  TouchableHighlight,
+  Image,
+} from 'react-native';
 
 import TodoListItem from './RecipeTitle';
 
@@ -54,7 +62,6 @@ function App(): JSX.Element {
             Todo🍅
           </Text>
         </View>
-
         <View style={{position: 'absolute', right: 2, top: 100}}>
           <Text
             style={{
@@ -68,16 +75,14 @@ function App(): JSX.Element {
             }}>
             {todo.map((item, index) => {
               return (
-                <View>
-                  <TodoListItem
-                    content={item}
-                    splitLine={(index + 1) % 5 === 0}
-                    onDelete={onDelete}
-                    index={index}
-                    swapItem={swapItem}
-                    change={change}
-                  />
-                </View>
+                <TodoListItem
+                  content={item}
+                  splitLine={(index + 1) % 5 === 0}
+                  onDelete={onDelete}
+                  index={index}
+                  swapItem={swapItem}
+                  change={change}
+                />
               );
             })}
           </Text>
@@ -87,8 +92,6 @@ function App(): JSX.Element {
             position: 'relative',
             width: 370,
             top: 600,
-            backgroundColor: value1,
-            borderBottomColor: '#000000',
           }}>
           <TextInput
             style={{
@@ -103,16 +106,18 @@ function App(): JSX.Element {
         </View>
         <View
           style={{
-            width: 370,
-            left: 5,
+            width: 70,
+            left: 300,
             top: 600,
           }}>
-          <Button
-            title="OK"
+          <TouchableHighlight
+            activeOpacity={0.9}
+            underlayColor={'#1aaf00'}
             onPress={() => {
               change();
-            }}
-          />
+            }}>
+            <Text style={{fontSize: 30}}>Push</Text>
+          </TouchableHighlight>
         </View>
       </View>
     </View>

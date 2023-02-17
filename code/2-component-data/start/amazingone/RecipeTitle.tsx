@@ -7,7 +7,8 @@ function TodoListItem(props: any) {
       <View
         style={{
           padding: 2,
-          backgroundColor: 'silver',
+          backgroundColor: 'rgba(192, 192, 192, 0.8)',
+          borderRadius: 4,
         }}>
         <View
           style={{
