@@ -14,7 +14,6 @@ import {
   Text,
   Dimensions,
   TouchableHighlight,
-  Image,
 } from 'react-native';
 
 import TodoListItem from './RecipeTitle';

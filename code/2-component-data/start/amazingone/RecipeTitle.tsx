@@ -42,7 +42,7 @@ function TodoListItem(props: any) {
                   activeOpacity={0.9}
                   underlayColor={'#1aaf00'}
                   onPress={() => {
-                    props.swapItem(props.index - 1, props.index);
+                    props.swapItem(props.index - 1, 0);
                   }}>
                   <Text style={{fontSize: 20}}>↑</Text>
                 </TouchableHighlight>
