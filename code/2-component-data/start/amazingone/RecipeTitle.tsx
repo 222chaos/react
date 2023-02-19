@@ -17,7 +17,7 @@ function TodoListItem(props: any) {
           style={{
             padding: 7,
             left: 30,
-            top: 3,
+            top: 4,
           }}>
           <Text
             style={{
@@ -44,7 +44,7 @@ function TodoListItem(props: any) {
                 }}>
                 <TouchableHighlight
                   activeOpacity={0.9}
-                  underlayColor={'#1aaf00'}
+                  underlayColor={'#bae7ff'}
                   onPress={() => {
                     props.swapItem(props.index, 0);
                   }}>
@@ -64,7 +64,7 @@ function TodoListItem(props: any) {
               }}>
               <TouchableHighlight
                 activeOpacity={0.9}
-                underlayColor={'#1aaf00'}
+                underlayColor={'#bae7ff'}
                 onPress={() => {
                   props.onDelete(props.index);
                 }}>

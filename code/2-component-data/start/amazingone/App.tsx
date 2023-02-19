@@ -46,25 +46,24 @@ function App(): JSX.Element {
         height: screenHeight + 20,
         width: screenWidth,
       }}>
-      <View style={{}}>
-        <View>
-          <Text
-            style={{
-              fontStyle: 'italic',
-              padding: 5,
-              color: '#1890ff',
-              top: 10,
-              left: 10,
-              fontSize: 32,
-            }}>
-            Todo🍅
-          </Text>
-        </View>
+      <View>
+        <Text
+          style={{
+            fontStyle: 'italic',
+            padding: 5,
+            color: '#1890ff',
+            top: 10,
+            left: 10,
+            fontSize: 24,
+          }}>
+          Todo 🍅
+        </Text>
+      </View>
+      <View style={{flex: 1, justifyContent: 'space-between'}}>
         <ScrollView
           style={{
             position: 'relative',
-            top: 30,
-            height: 520,
+            top: 15,
           }}>
           <View
             style={{
@@ -88,47 +87,58 @@ function App(): JSX.Element {
             })}
           </View>
         </ScrollView>
-        <View
+      </View>
+      <View
+        style={{
+          position: 'relative',
+          width: 290,
+          left: screenWidth / 48,
+          top: 30,
+        }}>
+        <TextInput
           style={{
-            position: 'relative',
-            width: 360,
-            left: 8,
-            top: 70,
+            height: 48,
+            borderRadius: 4,
+            backgroundColor: '#bae7ff',
+            color: 'black',
+          }}
+          multiline
+          numberOfLines={4}
+          onChangeText={(text: any) => onChangeText1(text)}
+          value={value1}
+        />
+      </View>
+      <View
+        style={{
+          borderRadius: 4,
+          backgroundColor: '#1190ff',
+          height: 48,
+          width: 65,
+          left: (screenWidth * 7) / 9,
+          top: -18,
+        }}></View>
+
+      <View
+        style={{
+          position: 'relative',
+          width: 40,
+          left: (screenWidth * 9) / 11,
+          top: -52,
+        }}>
+        <TouchableHighlight
+          activeOpacity={0.9}
+          underlayColor={'#69c0ff'}
+          onPress={() => {
+            change();
           }}>
-          <TextInput
+          <Text
             style={{
-              //
-              backgroundColor: '#bae7ff',
-              color: 'black',
-            }}
-            multiline
-            numberOfLines={4}
-            onChangeText={(text: any) => onChangeText1(text)}
-            value={value1}
-          />
-        </View>
-        <View
-          style={{
-            position: 'relative',
-            width: 70,
-            left: 300,
-            top: 70,
-          }}>
-          <TouchableHighlight
-            activeOpacity={0.9}
-            underlayColor={'#1aaf00'}
-            onPress={() => {
-              change();
+              color: '#ffffff',
+              fontSize: 14,
             }}>
-            <Text
-              style={{
-                color: '#69c0ff',
-                fontSize: 30,
-              }}>
-              Push
-            </Text>
-          </TouchableHighlight>
-        </View>
+            Push
+          </Text>
+        </TouchableHighlight>
       </View>
     </View>
   );
