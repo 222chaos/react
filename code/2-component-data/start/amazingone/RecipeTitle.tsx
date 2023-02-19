@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 import React from 'react';
 import {Text, TouchableHighlight, View} from 'react-native';
 function TodoListItem(props: any) {
@@ -6,14 +7,17 @@ function TodoListItem(props: any) {
     <View style={{}}>
       <View
         style={{
-          padding: 2,
-          backgroundColor: 'rgba(192, 192, 192, 0.8)',
+          left: 298,
+          height: 48,
+          padding: 4,
+          backgroundColor: 'rgba(186,231,255,0.8)',
           borderRadius: 4,
         }}>
         <View
           style={{
-            padding: 16,
+            padding: 7,
             left: 30,
+            top: 3,
           }}>
           <Text
             style={{
@@ -24,15 +28,15 @@ function TodoListItem(props: any) {
             {props.content}
           </Text>
         </View>
-        <View style={{position: 'absolute', top: 8}}>
+        <View style={{backgroundColor: '', position: 'relative', top: -36}}>
           <View style={{left: 10, height: 18, width: 28}}>
-            <Text>——</Text>
+            <Text style={{color: '#69c0ff'}}>——</Text>
           </View>
           {hover === 1 ? (
             <View style={{}}>
               <View
                 style={{
-                  position: 'absolute',
+                  position: 'relative',
                   top: -8,
                   left: 7.5,
                   height: 30,
@@ -44,7 +48,7 @@ function TodoListItem(props: any) {
                   onPress={() => {
                     props.swapItem(props.index, 0);
                   }}>
-                  <Text style={{fontSize: 20}}>↑</Text>
+                  <Text style={{fontSize: 20, color: '#69c0ff'}}>↑</Text>
                 </TouchableHighlight>
               </View>
             </View>
@@ -53,8 +57,8 @@ function TodoListItem(props: any) {
           {hover === 1 ? (
             <View
               style={{
-                position: 'absolute',
-                top: 2,
+                position: 'relative',
+                top: -65,
                 left: 330,
                 width: 18,
               }}>
@@ -64,7 +68,7 @@ function TodoListItem(props: any) {
                 onPress={() => {
                   props.onDelete(props.index);
                 }}>
-                <Text style={{fontSize: 30}}>×</Text>
+                <Text style={{fontSize: 30, color: '#69c0ff'}}>×</Text>
               </TouchableHighlight>
             </View>
           ) : null}
@@ -73,6 +77,7 @@ function TodoListItem(props: any) {
       <View style={{}}>
         <Text
           style={{
+            padding: 4,
             height: 0,
             width: '100%',
             borderWidth: 0.18182,

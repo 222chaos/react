@@ -14,6 +14,7 @@ import {
   Text,
   Dimensions,
   TouchableHighlight,
+  ScrollView,
 } from 'react-native';
 
 import TodoListItem from './RecipeTitle';
@@ -25,7 +26,6 @@ function App(): JSX.Element {
     setTodo([...todo, value1]);
     onChangeText1('');
   }
-
   function onDelete(index: any) {
     todo.splice(index, 1);
     setTodo([...todo]);
@@ -38,12 +38,11 @@ function App(): JSX.Element {
   }
   const [todo, setTodo] = useState<Array<any>>([]);
   const [value1, onChangeText1] = React.useState('');
-  //Math.floor((total + pagesize - 1) / pagesize));
   return (
     <View
       style={{
         padding: 8,
-        backgroundColor: 'papayawhip',
+        backgroundColor: '#e6f7ff',
         height: screenHeight + 20,
         width: screenWidth,
       }}>
@@ -53,21 +52,24 @@ function App(): JSX.Element {
             style={{
               fontStyle: 'italic',
               padding: 5,
-              color: 'purple',
+              color: '#1890ff',
               top: 10,
               left: 10,
-              fontSize: 50,
+              fontSize: 32,
             }}>
             Todo🍅
           </Text>
         </View>
-        <View style={{position: 'absolute', right: 2, top: 100}}>
-          <Text
+        <ScrollView
+          style={{
+            position: 'relative',
+            top: 30,
+            height: 520,
+          }}>
+          <View
             style={{
-              lineHeight: 20,
-              position: 'absolute',
-              textAlign: 'right',
-              right: 5,
+              position: 'relative',
+              right: 295,
               width: 80,
               flexWrap: 'wrap',
               display: 'flex',
@@ -76,7 +78,7 @@ function App(): JSX.Element {
               return (
                 <TodoListItem
                   content={item}
-                  splitLine={(index + 1) % 5 === 0}
+                  splitLine={index % 5 === 0}
                   onDelete={onDelete}
                   index={index}
                   swapItem={swapItem}
@@ -84,17 +86,19 @@ function App(): JSX.Element {
                 />
               );
             })}
-          </Text>
-        </View>
+          </View>
+        </ScrollView>
         <View
           style={{
             position: 'relative',
-            width: 370,
-            top: 600,
+            width: 360,
+            left: 8,
+            top: 70,
           }}>
           <TextInput
             style={{
-              backgroundColor: 'oldlace',
+              //
+              backgroundColor: '#bae7ff',
               color: 'black',
             }}
             multiline
@@ -105,9 +109,10 @@ function App(): JSX.Element {
         </View>
         <View
           style={{
+            position: 'relative',
             width: 70,
             left: 300,
-            top: 600,
+            top: 70,
           }}>
           <TouchableHighlight
             activeOpacity={0.9}
@@ -115,7 +120,13 @@ function App(): JSX.Element {
             onPress={() => {
               change();
             }}>
-            <Text style={{fontSize: 30}}>Push</Text>
+            <Text
+              style={{
+                color: '#69c0ff',
+                fontSize: 30,
+              }}>
+              Push
+            </Text>
           </TouchableHighlight>
         </View>
       </View>
